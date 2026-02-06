@@ -1,0 +1,16 @@
+{
+  "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    },
+    "editor.formatOnSave": true
+  },
+  "[typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit"
+    },
+    "editor.formatOnSave": true
+  },
+  "css.validate": false,
+  "editor.defaultFormatter": "biomejs.biome"
+}
