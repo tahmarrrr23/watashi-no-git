@@ -1,4 +1,4 @@
-import { Container, Heading } from "@radix-ui/themes";
+import { Box, Container, Heading, Tabs } from "@radix-ui/themes";
 import { RepositoryList } from "@/components/repository-list";
 import { getRepos } from "@/lib/github";
 
@@ -11,7 +11,17 @@ export default async function Home() {
         Watashi no Git
       </Heading>
 
-      <RepositoryList repositories={repos} />
+      <Tabs.Root defaultValue="repositories">
+        <Tabs.List>
+          <Tabs.Trigger value="repositories">Repositories</Tabs.Trigger>
+        </Tabs.List>
+
+        <Box pt="5">
+          <Tabs.Content value="repositories">
+            <RepositoryList repositories={repos} />
+          </Tabs.Content>
+        </Box>
+      </Tabs.Root>
     </Container>
   );
 }
