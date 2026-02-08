@@ -6,8 +6,8 @@ export default async function Home() {
   const repos = await getRepos();
 
   return (
-    <Container size="4" py="6">
-      <Heading size="8" mb="4">
+    <Container size="4" px="8">
+      <Heading size="8" my="6">
         Watashi no Git
       </Heading>
 
@@ -16,7 +16,7 @@ export default async function Home() {
           <Tabs.Trigger value="repositories">Repositories</Tabs.Trigger>
         </Tabs.List>
 
-        <Box pt="5">
+        <Box mt="6">
           <Tabs.Content value="repositories">
             <RepositoryList repositories={repos} />
           </Tabs.Content>
