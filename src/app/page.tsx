@@ -1,21 +1,17 @@
+import { Container, Heading } from "@radix-ui/themes";
+import { RepositoryList } from "@/components/repository-list";
 import { getRepos } from "@/lib/github";
 
 export default async function Home() {
   const repos = await getRepos();
 
   return (
-    <main style={{ padding: "0px 20px" }}>
-      <h1 style={{ fontWeight: "bold" }}>Watashi no Git</h1>
-      <ul>
-        {repos.map((repo) => (
-          <li key={repo.id}>
-            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-              {repo.full_name}
-            </a>
-            ({repo.created_at})
-          </li>
-        ))}
-      </ul>
-    </main>
+    <Container size="4" py="6">
+      <Heading size="8" mb="4">
+        Watashi no Git
+      </Heading>
+
+      <RepositoryList repositories={repos} />
+    </Container>
   );
 }
