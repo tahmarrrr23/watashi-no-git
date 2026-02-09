@@ -12,10 +12,27 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
     <Table.Root variant="surface" size="2">
       <Table.Header>
         <Table.Row>
-          <Table.ColumnHeaderCell>Repository</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell justify="end">Stars</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell justify="end">Created</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell justify="end">Updated</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell width="auto">
+            Repository
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell
+            justify="end"
+            style={{ width: "1%", whiteSpace: "nowrap" }}
+          >
+            Stars
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell
+            justify="end"
+            style={{ width: "1%", whiteSpace: "nowrap" }}
+          >
+            Created
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell
+            justify="end"
+            style={{ width: "1%", whiteSpace: "nowrap" }}
+          >
+            Updated
+          </Table.ColumnHeaderCell>
         </Table.Row>
       </Table.Header>
 
@@ -50,15 +67,15 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
                 )}
               </Flex>
             </Table.Cell>
-            <Table.Cell justify="end">
+            <Table.Cell justify="end" style={{ whiteSpace: "nowrap" }}>
               <Text weight="medium">{repo.stargazers_count}</Text>
             </Table.Cell>
-            <Table.Cell justify="end">
+            <Table.Cell justify="end" style={{ whiteSpace: "nowrap" }}>
               <Text size="2" color="gray">
                 {formatDate(repo.created_at)}
               </Text>
             </Table.Cell>
-            <Table.Cell justify="end">
+            <Table.Cell justify="end" style={{ whiteSpace: "nowrap" }}>
               <Text size="2" color="gray">
                 {formatDate(repo.updated_at)}
               </Text>

@@ -12,10 +12,27 @@ export const StarList = ({ stars }: StarListProps) => {
     <Table.Root variant="surface" size="2" layout="auto">
       <Table.Header>
         <Table.Row>
-          <Table.ColumnHeaderCell>Repository</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell justify="end">Stars</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell justify="end">Created</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell justify="end">Updated</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell width="auto">
+            Repository
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell
+            justify="end"
+            style={{ width: "1%", whiteSpace: "nowrap" }}
+          >
+            Stars
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell
+            justify="end"
+            style={{ width: "1%", whiteSpace: "nowrap" }}
+          >
+            Created
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell
+            justify="end"
+            style={{ width: "1%", whiteSpace: "nowrap" }}
+          >
+            Updated
+          </Table.ColumnHeaderCell>
         </Table.Row>
       </Table.Header>
 
@@ -35,17 +52,17 @@ export const StarList = ({ stars }: StarListProps) => {
                 </Link>
               </Flex>
             </Table.Cell>
-            <Table.Cell justify="end">
+            <Table.Cell justify="end" style={{ whiteSpace: "nowrap" }}>
               <Flex align="center" gap="1" justify="end">
                 <Text weight="medium">{repo.stargazers_count}</Text>
               </Flex>
             </Table.Cell>
-            <Table.Cell justify="end">
+            <Table.Cell justify="end" style={{ whiteSpace: "nowrap" }}>
               <Text size="2" color="gray">
                 {formatDate(repo.created_at)}
               </Text>
             </Table.Cell>
-            <Table.Cell justify="end">
+            <Table.Cell justify="end" style={{ whiteSpace: "nowrap" }}>
               <Text size="2" color="gray">
                 {formatDate(repo.updated_at)}
               </Text>
