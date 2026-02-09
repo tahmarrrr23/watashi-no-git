@@ -1,15 +1,15 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Badge, Flex, Link, Table, Text } from "@radix-ui/themes";
-import type { getRepos } from "@/lib/github";
+import { Flex, Link, Table, Text } from "@radix-ui/themes";
+import type { getStars } from "@/lib/github";
 import { formatDate } from "@/lib/time";
 
-export interface RepositoryListProps {
-  repositories: Awaited<ReturnType<typeof getRepos>>;
+export interface StarListProps {
+  stars: Awaited<ReturnType<typeof getStars>>;
 }
 
-export const RepositoryList = ({ repositories }: RepositoryListProps) => {
+export const StarList = ({ stars }: StarListProps) => {
   return (
-    <Table.Root variant="surface" size="2">
+    <Table.Root variant="surface" size="2" layout="auto">
       <Table.Header>
         <Table.Row>
           <Table.ColumnHeaderCell>Repository</Table.ColumnHeaderCell>
@@ -20,7 +20,7 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
       </Table.Header>
 
       <Table.Body>
-        {repositories.map((repo) => (
+        {stars.map((repo) => (
           <Table.Row key={repo.id} align="center">
             <Table.Cell>
               <Flex align="center" gap="1">
@@ -33,25 +33,12 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
                 >
                   {repo.full_name}
                 </Link>
-                {repo.private && (
-                  <Badge color="orange" variant="surface" size="1">
-                    Private
-                  </Badge>
-                )}
-                {repo.fork && (
-                  <Badge color="gray" variant="surface" size="1">
-                    Fork
-                  </Badge>
-                )}
-                {repo.archived && (
-                  <Badge color="red" variant="surface" size="1">
-                    Archived
-                  </Badge>
-                )}
               </Flex>
             </Table.Cell>
             <Table.Cell justify="end">
-              <Text weight="medium">{repo.stargazers_count}</Text>
+              <Flex align="center" gap="1" justify="end">
+                <Text weight="medium">{repo.stargazers_count}</Text>
+              </Flex>
             </Table.Cell>
             <Table.Cell justify="end">
               <Text size="2" color="gray">
