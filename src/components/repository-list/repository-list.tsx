@@ -21,10 +21,10 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
 
       <Table.Body>
         {repositories.map((repo) => (
-          <Table.Row key={repo.id}>
+          <Table.Row key={repo.id} align="center">
             <Table.Cell>
-              <Flex direction="column" gap="1">
-                <Flex align="center" gap="2">
+              <Flex direction="column">
+                <Flex align="center" gap="1">
                   <GitHubLogoIcon />
                   <Link
                     href={repo.html_url}
@@ -35,17 +35,17 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
                     {repo.full_name}
                   </Link>
                   {repo.private && (
-                    <Badge color="orange" variant="soft" size="1">
+                    <Badge color="orange" variant="surface" size="1">
                       Private
                     </Badge>
                   )}
                   {repo.fork && (
-                    <Badge color="gray" variant="soft" size="1">
+                    <Badge color="gray" variant="surface" size="1">
                       Fork
                     </Badge>
                   )}
                   {repo.archived && (
-                    <Badge color="red" variant="soft" size="1">
+                    <Badge color="red" variant="surface" size="1">
                       Archived
                     </Badge>
                   )}
