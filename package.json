@@ -18,11 +18,11 @@
     "react-dom": "19"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.13",
+    "@biomejs/biome": "^2.3.14",
     "@types/node": "24",
     "@types/react": "19",
     "@types/react-dom": "19",
-    "stylelint": "^17.1.0",
+    "stylelint": "^17.2.0",
     "stylelint-config-clean-order": "^8.0.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-order": "^7.0.1",
