@@ -8,6 +8,12 @@ export interface StarListProps {
 }
 
 export const StarList = ({ stars }: StarListProps) => {
+  const sortedStars = [...stars].sort(
+    (a, b) =>
+      new Date(b.created_at ?? 0).getTime() -
+      new Date(a.created_at ?? 0).getTime(),
+  );
+
   return (
     <Table.Root variant="surface" size="2" layout="auto">
       <Table.Header>
@@ -37,7 +43,7 @@ export const StarList = ({ stars }: StarListProps) => {
       </Table.Header>
 
       <Table.Body>
-        {stars.map((repo) => (
+        {sortedStars.map((repo) => (
           <Table.Row key={repo.id} align="center">
             <Table.Cell>
               <Flex align="center" gap="1">

@@ -8,6 +8,12 @@ export interface RepositoryListProps {
 }
 
 export const RepositoryList = ({ repositories }: RepositoryListProps) => {
+  const sortedRepositories = [...repositories].sort(
+    (a, b) =>
+      new Date(b.created_at ?? 0).getTime() -
+      new Date(a.created_at ?? 0).getTime(),
+  );
+
   return (
     <Table.Root variant="surface" size="2">
       <Table.Header>
@@ -37,7 +43,7 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
       </Table.Header>
 
       <Table.Body>
-        {repositories.map((repo) => (
+        {sortedRepositories.map((repo) => (
           <Table.Row key={repo.id} align="center">
             <Table.Cell>
               <Flex align="center" gap="1">
